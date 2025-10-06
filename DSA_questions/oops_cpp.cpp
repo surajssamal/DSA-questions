@@ -65,12 +65,11 @@ int main() {
   some.somefunck();
 
   // virtual classes
-  Learning_virtual k;
-  k.somefunck("something");
   Inheriting_learnig_virtual *l =
       new Inheriting_learnig_virtual(); // this is a method of using heap insted
                                         // of stack thats it
   l->somefunck("hemlo");
   l->pure_virtual("something");
+  delete l;
   return 0;
 }
