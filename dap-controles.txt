@@ -1,0 +1,35 @@
+c++ :- g++ -g file_name.cpp -o file_name && ./file_name # -g comile it to be compatable for debugging
+ 
+
+LazyVim's DAP Core extra provides these default keybindings:​
+
+<leader>db - Toggle breakpoint
+
+<leader>dB - Set conditional breakpoint
+
+<leader>dc - Start/continue debugging
+
+<leader>dC - Run to cursor
+
+<leader>di - Step into
+
+<leader>dO - Step over
+
+<leader>do - Step out
+
+<leader>dt - Terminate session
+
+<leader>du - Toggle DAP UI
+
+<leader>de - Evaluate expression
+
+Inspect Variables
+LazyVim's DAP setup provides multiple ways to examine values:​
+
+Virtual text: Variable values appear inline next to the code automatically
+
+DAP UI panels: The scopes panel shows local and global variables
+
+Hover evaluation: Move cursor over a variable and hover to see its value
+
+REPL: Type expressions in the REPL window to evaluate them interactively
