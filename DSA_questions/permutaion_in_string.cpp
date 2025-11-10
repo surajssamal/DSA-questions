@@ -1,4 +1,3 @@
-#include "print_array.h"
 #include <bits/stdc++.h>
 #include <string>
 #include <unordered_map>

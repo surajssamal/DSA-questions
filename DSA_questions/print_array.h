@@ -5,7 +5,8 @@
 #include <iostream>
 
 template <typename Container> void print_container(const Container &c) {
-  for (const auto &elem : c)
+  for (const auto &elem : c) {
     std::cout << elem << " ";
+  }
   std::cout << std::endl;
 }
