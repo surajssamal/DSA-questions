@@ -36,7 +36,7 @@ void printing_vector(vector<bt *> &vec) {
 }
 
 int main() {
-  vector<int> some = {1, 2, 3, 4, 5, 6, 10};
+  vector<int> some = {1, 2, 3, 4, 5, 6, 10, 11};
   bt *root = insearting_elements(some[0]);
   vector<bt *> bt_pointer;
   bt_pointer.push_back(root);
