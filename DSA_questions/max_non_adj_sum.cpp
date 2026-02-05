@@ -1,7 +1,6 @@
-#include <algorithm>
+#include "print_array.h"
 #include <bits/stdc++.h>
 #include <unordered_map>
-#include <vector>
 using namespace std;
 
 /*observation
@@ -14,8 +13,7 @@ using namespace std;
   10+40=50
   coutput=60(cause its the max)
 */
-unordered_map<int, int> memo;
-int solution(vector<int> inputs, int n) {
+int solution(vector<int> inputs, int n, unordered_map<int, int> &memo) {
   if (memo.find(n) != memo.end()) {
     return memo[n];
   }
@@ -25,11 +23,22 @@ int solution(vector<int> inputs, int n) {
   if (n == 0) {
     return inputs[n];
   }
-  int taking = solution(inputs, n - 2) + inputs[n];
-  int not_taking = solution(inputs, n - 1);
+  int taking = solution(inputs, n - 2, memo) + inputs[n];
+  int not_taking = solution(inputs, n - 1, memo);
   int result = max(taking, not_taking);
   memo[n] = result;
   return result;
+}
+int solution_tabulation(int n, vector<int> inputs) {
+  if (n == 0) {
+    return inputs[0];
+  }
+  vector<int> record(n);
+  record[0] = inputs[0];
+  for (int i = 1; i < n; i++) {
+    record[i] = max(record[i - 2] + inputs[i], record[i - 1]);
+  }
+  return record[n - 1];
 }
 
 int main() {
@@ -42,7 +51,10 @@ int main() {
     for (int &x : inputs) {
       cin >> x;
     }
-    cout << solution(inputs, n - 1) << endl;
+    unordered_map<int, int> memo;
+    cout << solution(inputs, n, memo) << endl;
+    cout << solution_tabulation(n, inputs) << endl;
   }
+
   return 0;
 }
