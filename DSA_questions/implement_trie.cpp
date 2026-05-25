@@ -22,7 +22,7 @@ public:
   void insert(string word) {
     trie_node *curr = root;
     for (char c : word) {
-      int i = c = 'a';
+      int i = c - 'a';
       if (curr->children[i] == nullptr) {
         curr->children[i] = new trie_node();
       }
@@ -34,7 +34,7 @@ public:
   bool search(string word) {
     trie_node *curr = root;
     for (char c : word) {
-      int i = c = 'a';
+      int i = c - 'a';
       if (curr->children[i] == nullptr) {
         return false;
       }
@@ -46,13 +46,26 @@ public:
   bool startsWith(string prefix) {
     trie_node *curr = root;
     for (char c : prefix) {
-      int i = c = 'a';
+      int i = c - 'a';
       if (curr->children[i] == nullptr) {
         return false;
       }
       curr = curr->children[i];
     }
     return true;
+  }
+  void deletion(string word) {
+    trie_node *curr = root;
+    for (char c : word) {
+      int i = c - 'a';
+      if (curr->children[i] == nullptr) {
+        return;
+      }
+      curr = curr->children[i];
+    };
+    if (curr->lastelem == true) {
+      curr->lastelem = false;
+    }
   }
 };
 
